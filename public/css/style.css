@@ -57,6 +57,12 @@
   .answer-feedback.incorrect {
     color: red; }
 
+#nextQuestion
+{
+  padding: 20px;
+  text-align: center;
+}
+
 #statistics {
   padding: 40px; }
   #statistics:before, #statistics:after {
