@@ -2,6 +2,8 @@ app.controller('MainController', function($scope, FlashCardsFactory) {
 
   var futureFlashCards = FlashCardsFactory.getFlashCards();
 
+  $scope.loading = false;
+
   futureFlashCards
   .then(function(flashCards)
   {
@@ -27,6 +29,7 @@ app.controller('MainController', function($scope, FlashCardsFactory) {
 
   $scope.getCategoryCards = function(category)
   {
+    $scope.loading = true;
     FlashCardsFactory.getFlashCards(category)
     .then(function(flashCards)
     {
@@ -34,6 +37,7 @@ app.controller('MainController', function($scope, FlashCardsFactory) {
       $scope.flashCards = flashCards;
       $scope.currentFlashCard = flashCards[0];
       $scope.currentCategory = category;
+      //$scope.loading = false;
     });
   }
 

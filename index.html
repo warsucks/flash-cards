@@ -8,6 +8,7 @@
     <script src="js/controllers/mainController.js"></script>
     <script src="js/controllers/flashCardController.js"></script>
     <script src="js/controllers/statsController.js"></script>
+    <script src="js/directives/loader/loader.js"></script>
         <title>Flash Cards</title>
         <!-- We've provided some styles for you, aren't we nice? -->
         <link rel="stylesheet" type="text/css" href="css/reset.css" />
@@ -24,7 +25,8 @@
           <button class="category-button" ng-click="getCategoryCards('Node')" ng-class='{active: currentCategory==="Node"}'>Node</button>
           <button class="category-button" ng-click="getCategoryCards()" ng-class='{active: currentCategory===undefined}'>ALL</button>
         </div>
-        <div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashCard in flashCards" ng-show="flashCard===currentFlashCard">
+        <loader ng-show="loading"></loader>
+        <div class="flash-card" ng-controller="FlashCardController" ng-repeat="flashCard in flashCards" ng-show="flashCard===currentFlashCard && !loading">
         <h3> {{flashCard.category}}</h3>
         <h1>{{ flashCard.question | uppercase }}</h1>
         <ul class="flash-card-answers">
