@@ -16,3 +16,14 @@ app.controller('FlashCardController', function($scope, ScoreFactory)
     $scope.answered = true;
   }
 });
+
+app.filter("cheat", function()
+{
+  return function(answerChoices)
+  {
+    return answerChoices.filter(function(choice)
+    {
+      return choice.correct;
+    });
+  };
+});
